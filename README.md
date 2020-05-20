@@ -5,13 +5,12 @@ The backend API receives the audio and asynchronously processes it by an algorit
 
 **Result:** 
 The node.js backend uses express and defines the endpoints that the application needs.
-In a more advanced version of the application the user would send a GET request with content-type "mp-3" and the recorded file to the endpoint "/convertaudio".
-Maybe I would try to rewrite some of the functionality of the npm "audioRecorder" module to make it fit to the needs of the application (For example there is already functionality to send the recorded audio to an API-Url, this could probably extracted and used for the application)
+In a more advanced version of the application the user would send a GET request with content-type "mp-3" and the recorded file to the endpoint "/convertaudio". The response will be the corrected audio.
 
 The backend needs a function correctAudio() that translates the audio into text, corrects it, translates it back to audio. Maybe there are npm packages for some of the tasks but probably I would try to include some Python NLP functionality to do this job. (Maybe because of this I might rewrite the backend with Flask).
 Node.js is used in this version because it can easily handle asynchronous requests.
 
-The frontend is set up with Vue. In a later version the "send"-button for the audio should be disabled if there is no name, an invalid e-mail or no text-file.
+The frontend is set up with Vue. Currently an audiofile that can be recorded using the npm package "audioRecorder". With this module the recorded file can be sent to an APIUrl. In a later version I would try to extract and extend this functionality to fit the need of the GET-request that the API needs. Also the send button should only be displayed if the user also entered a valid name and e-mail.
 Of course also the result of the correction needs to be displayed.
 
 
